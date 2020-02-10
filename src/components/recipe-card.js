@@ -5,7 +5,7 @@ import {
 
 const RecipeCard = ({ id, image, title, category, area, youtube }) => {
   function showRecipe() {
-    
+    window.location.assign("/recipe/" + id);
   }
 
   return (
