@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Layout from '../components/layout'
 import Loading from '../components/loading'
 import {
-  Container, Row
-} from 'reactstrap';
-import {
     useParams
   } from "react-router-dom";
 
-function Food() {
+function Drink() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
 
@@ -17,28 +14,28 @@ function Food() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const response = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id);
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id);
       const data = await response.json();
 
-      if (!Array.isArray(data.meals) || !data.meals.length) {
+      if (!Array.isArray(data.drinks) || !data.drinks.length) {
         setData({});
       } else {
-        setData(data.meals[0]);
+        setData(data.drinks[0]);
       }
       
       setLoading(false);
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
   return(
     <Layout>
         {loading ? <Loading /> : 
-            <p>Meal: {data.strMeal}</p>
+            <p>Drink: {data.strDrink}</p>
         }
     </Layout>
   );
 }
 
-export default Food;
+export default Drink;

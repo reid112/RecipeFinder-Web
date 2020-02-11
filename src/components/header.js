@@ -22,7 +22,7 @@ const Header = () => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink href="/food">Food</NavLink>
+                    <NavLink href="/foods">Food</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="/drinks">Drinks</NavLink>
